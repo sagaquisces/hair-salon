@@ -4,6 +4,8 @@ import org.sql2o.*;
 
 public class ClientTest {
 
+  String testDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
   @Rule
   public DatabaseRule database = new DatabaseRule();
 
@@ -68,6 +70,16 @@ public class ClientTest {
     Client secondClient = new Client("Michael", "Smith", "m@s.com", 1);
     secondClient.save();
     assertEquals(Client.find(secondClient.getId()), secondClient);
+  }
+
+  @Test
+  public void save_savesStylistIdIntoDB_true() {
+    Stylist testStylist = new Stylist("Joe", "Styles", "joe@styles.com", testDescription);
+    testStylist.save();
+    Client testClient = new Client("Hegre", "Phineas", "h@p.com", testStylist.getId());
+    testClient.save();
+    Client savedClient = Client.find(testClient.getId());
+    assertEquals(savedClient.getStylistId(), testStylist.getId());
   }
 
 }

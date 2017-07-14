@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
@@ -73,6 +74,18 @@ public class StylistTest {
     Stylist secondStylist = new Stylist("Harry", "Horses", "harry@horses.com", anotherTestDescription);
     secondStylist.save();
     assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
+  }
+
+  @Test
+  public void getClients_retrievesAllClientsFromDatabase_clientsList() {
+    Stylist testStylist = new Stylist("Joe", "Styles", "joe@styles.com", testDescription);
+    testStylist.save();
+    Client firstClient = new Client("Hegre", "Phineas", "h@p.com", testStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Michael", "Smith", "m@s.com", testStylist.getId());
+    secondClient.save();
+    Client[] clients = new Client[] { firstClient, secondClient };
+    assertTrue(testStylist.getClients().containsAll(Arrays.asList(clients)));
   }
 
 }
