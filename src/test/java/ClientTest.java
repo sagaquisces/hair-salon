@@ -51,4 +51,23 @@ public class ClientTest {
     assertTrue(Client.all().get(0).equals(testClient));
   }
 
+  @Test
+  public void all_returnsAllInstancesOfClient_true() {
+    Client firstClient = new Client("Hegre", "Phineas", "h@p.com", 1);
+    firstClient.save();
+    Client secondClient = new Client("Michael", "Smith", "m@s.com", 1);
+    secondClient.save();
+    assertEquals(true, Client.all().get(0).equals(firstClient));
+    assertEquals(true, Client.all().get(1).equals(secondClient));
+  }
+
+  @Test
+  public void find_returnsClientsWithSameId_secondClient() {
+    Client firstClient = new Client("Hegre", "Phineas", "h@p.com", 1);
+    firstClient.save();
+    Client secondClient = new Client("Michael", "Smith", "m@s.com", 1);
+    secondClient.save();
+    assertEquals(Client.find(secondClient.getId()), secondClient);
+  }
+
 }
