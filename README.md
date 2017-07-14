@@ -9,14 +9,14 @@ A web page that allows user to organize stylists and clients:
   * Allows user to update details for stylist and clients.
   * Allows user to delete clients
   * Allows user to delete stylists and reassign clients.
-  ```SQL
+  ```
     /* In PSQL */
     CREATE DATABASE hair_salon;
     \c hair_salon;
     CREATE TABLE stylists (id serial PRIMARY KEY, firstname varchar, lastname varchar, email varchar, description text);
     CREATE TABLE clients (id serial PRIMARY KEY, firstname varchar, lastname varchar, email varchar, stylistID int);
     CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
-    ```  
+  ```  
 
 ## What's included
 Within the repository you'll find the following directories and files:
