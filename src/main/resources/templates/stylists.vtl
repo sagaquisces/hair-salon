@@ -10,7 +10,7 @@
   <h2>Current stylists</h3>
   <ul class="list-group">
   #foreach ($stylist in $stylists)
-    <li class="list-group-item">$stylist.getFirstName() $stylist.getLastName()</li>
+    <li class="list-group-item"><a href="/stylists/$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</a></li>
   #end
   </ul>
 #else

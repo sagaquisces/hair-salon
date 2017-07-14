@@ -1,0 +1,17 @@
+<!-- stylist.vtl -->
+<h2>Stylist Profile</h2>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>$stylist.getFirstName() $stylist.getLastName()</h3></div>
+  <div class="panel-body">
+    <p>$stylist.getDescription()</p>
+    <h4>List of Clients</h4>
+
+    <ul>
+    #foreach ($client in $clients)
+      <li>$client.getFirstName() $client.getLastName()</li>
+    #end
+    </ul>
+  </div>
+</div>
+
+<!-- stylist.vtl -->
