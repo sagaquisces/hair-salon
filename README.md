@@ -36,8 +36,8 @@ hair-salon
     │   │   └── VelocityTemplateEngine.java
     │   └── resources
     │       └── templates
+    │           ├── layout.vtl
     │           ├── index.vtl
-    │           ├── xxx.vtl
     │           ├── xxx.vtl
     │           ├── xxx.vtl
     │           ├── xxx.vtl
@@ -50,7 +50,7 @@ hair-salon
         └── java
             ├── DatabaseRule.java
             ├── StylistTest.java
-            └── xxx.java
+            └── ClientTest.java
 ```
 
 

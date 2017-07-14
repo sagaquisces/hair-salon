@@ -1,0 +1,24 @@
+<!--stylists.vtl-->
+
+#if($newStylist)
+  <h1>Success!</h1>
+  $newStylist.getFirstName() $newStylist.getLastName() has been saved to the Stylists List.
+#end
+
+
+#if ($stylists)
+  <h2>Current stylists</h3>
+  <ul class="list-group">
+  #foreach ($stylist in $stylists)
+    <li class="list-group-item">$stylist.getFirstName() $stylist.getLastName()</li>
+  #end
+  </ul>
+#else
+  <div class="alert alert-warning">
+  <strong>Warning!</strong>There are currently no stylists in the system.
+  </div>
+#end
+
+
+<a href="/">Go Back</a>
+<!--stylists.vtl-->
