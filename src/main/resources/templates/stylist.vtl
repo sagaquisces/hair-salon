@@ -6,11 +6,17 @@
     <p>$stylist.getDescription()</p>
     <h4>List of Clients</h4>
 
-    <ul>
-    #foreach ($client in $clients)
-      <li>$client.getFirstName() $client.getLastName()</li>
+    #if(!$clients.isEmpty())
+      <ul class="list-group">
+        #foreach ($client in $clients)
+          <li class="list-group-item">
+            $client.getFirstName() $client.getLastName()
+          </li>
+        #end
+      </ul>
+    #else
+      <div class="alert alert-warning">This stylist has no clients.</div>
     #end
-    </ul>
   </div>
 </div>
 
