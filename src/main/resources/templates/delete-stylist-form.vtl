@@ -1,0 +1,16 @@
+<p>Delete a stylist:</p>
+
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <div class="form-group">
+    <label for="assignedStylistId">Who will take over $stylist.getFirstName()'s clients?':</label>
+    <select class='form-control' id='assignedStylistId' name='assignedStylistId' type='text'>
+      #foreach ($remainingstylist in $stylists)
+        #if ($remainingstylist.getId() != $stylist.getId())
+          <option value="$remainingstylist.getId()">$remainingstylist.getFirstName() $remainingstylist.getLastName() $remainingstylist.getId() $stylist.getId()</option>
+        #end
+      #end
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-default">Delete stylist</button>
+</form>

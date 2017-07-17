@@ -5,17 +5,23 @@
   $newStylist.getFirstName() $newStylist.getLastName() has been saved to the Stylists List.
 #end
 
+#if($deletedStylistName)
+
+<div class="alert alert-success">
+  <strong>$deletedStylistName</strong>was deleted from the system.
+</div>
+#end
 
 #if ($stylists)
   <h2>Current stylists</h3>
   <ul class="list-group">
   #foreach ($stylist in $stylists)
-    <li class="list-group-item clearfix">
-      <span class="pull-left"><a href="/stylists/$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</a></span>
-      <a href="stylists/$stylist.getId()/update" class="btn btn-info" role="button">Update</a>
-      <form class="pull-right">
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
+    <li class="list-group-item">
+      <a href="/stylists/$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</a>
+      <div class="btn-group pull-right">
+        <a href="stylists/$stylist.getId()/update" class="btn btn-primary">Update</a>
+        <a href="stylists/$stylist.getId()/delete" class="btn btn-danger">Delete</a>
+      </div>
     </li>
   #end
   </ul>

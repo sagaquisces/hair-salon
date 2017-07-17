@@ -1,5 +1,8 @@
 <!-- stylist.vtl -->
 <h2>Stylist Profile</h2>
+#if ($clientfirstname)
+  <div class="alert alert-success">$newClientFirstName has been added as a new client!</div>
+#end
 <div class="panel panel-default">
   <div class="panel-heading"><h3>$stylist.getFirstName() $stylist.getLastName()</h3></div>
   <div class="panel-body">
@@ -17,6 +20,29 @@
     #else
       <div class="alert alert-warning">This stylist has no clients.</div>
     #end
+
+    <h3>Add a client to this list:</h3>
+
+    <form action="/clients" method="post">
+      <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input class="form-control" id="firstname" name="firstname" type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input class="form-control" id="lastname" name="lastname" type="text">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email" name="email" type="text">
+      </div>
+
+      <button type="submit" class="btn btn-default">Add client</button>
+    </form>
   </div>
 </div>
 

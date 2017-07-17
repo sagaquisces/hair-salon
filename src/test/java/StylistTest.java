@@ -96,4 +96,27 @@ public class StylistTest {
     assertEquals("Frankie", Stylist.find(testStylist.getId()).getFirstName());
   }
 
+  @Test
+  public void delete_deletesStylist_true() {
+    Stylist myStylist = new Stylist("Joe", "Styles", "joe@styles.com", testDescription);
+    myStylist.save();
+    int myStylistId = myStylist.getId();
+    myStylist.delete(0);
+    assertEquals(null, Stylist.find(myStylistId));
+  }
+
+  @Test
+  public void delete_willGiveClientsToOtherStylist_2() {
+    Stylist firstStylist = new Stylist("Joe", "Styles", "joe@styles.com", testDescription);
+    firstStylist.save();
+    Stylist secondStylist = new Stylist("Harry", "Horses", "harry@horses.com", anotherTestDescription);
+    secondStylist.save();
+    Client firstClient = new Client("Hegre", "Phineas", "h@p.com", firstStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Michael", "Smith", "m@s.com", firstStylist.getId());
+    secondClient.save();
+    firstStylist.delete(secondStylist.getId());
+    assertEquals(2, secondStylist.getClients().size());
+  }
+
 }

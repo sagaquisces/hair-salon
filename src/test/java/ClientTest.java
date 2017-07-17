@@ -82,4 +82,14 @@ public class ClientTest {
     assertEquals(savedClient.getStylistId(), testStylist.getId());
   }
 
+  @Test
+  public void delete_deletesClient_true() {
+    Client myClient = new Client("Hegre", "Phineas", "h@p.com", 1);
+    myClient.save();
+    int myClientId = myClient.getId();
+    myClient.delete();
+    assertEquals(null, Client.find(myClientId));
+  }
+
+
 }

@@ -98,7 +98,19 @@ public class Stylist {
       .addParameter("description", description)
       .addParameter("id", id)
       .executeUpdate();
+    }
   }
-}
+
+  public void delete(int newid) {
+    try(Connection con = DB.sql2o.open()) {
+    String sqlA = "UPDATE clients SET stylistid = :newid WHERE stylistid = :id; DELETE FROM stylists WHERE id = :id;";
+    con.createQuery(sqlA)
+      .addParameter("newid", newid)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
+
 
 }
