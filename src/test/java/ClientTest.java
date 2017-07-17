@@ -83,6 +83,14 @@ public class ClientTest {
   }
 
   @Test
+  public void update_updatesClientFirstName_true() {
+    Client testClient = new Client("Joe", "Styles", "joe@styles.com", 2);
+    testClient.save();
+    testClient.update("Frankie", "Styles", "joe@styles.com", 2);
+    assertEquals("Frankie", Client.find(testClient.getId()).getFirstName());
+  }
+
+  @Test
   public void delete_deletesClient_true() {
     Client myClient = new Client("Hegre", "Phineas", "h@p.com", 1);
     myClient.save();

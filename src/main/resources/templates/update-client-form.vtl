@@ -1,0 +1,33 @@
+<p>Update a client:</p>
+
+<form action="/stylists/$stylist.getId()/clients/$client.getId()" method="post">
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input class="form-control" id="firstname" name="firstname" type="text" value="$client.getFirstName()">
+  </div>
+
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input class="form-control" id="lastname" name="lastname" type="text" value="$client.getLastName()">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" id="email" name="email" type="text" value="$client.getEmail()">
+  </div>
+
+  <div class="form-group">
+    <label for="stylistid">Current stylist</label>
+    <select class='form-control' id='stylistid' name='stylistid' type='text'>
+      #foreach ($thisstylist in $stylists)
+        #if ($thisstylist.getId() != $stylist.getId())
+          <option value="$thisstylist.getId()">$thisstylist.getFirstName() $thisstylist.getLastName()</option>
+        #else
+          <option value="$thisstylist.getId()" selected>$thisstylist.getFirstName() $thisstylist.getLastName()</option>
+        #end
+      #end
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-default">Update client</button>
+</form>
