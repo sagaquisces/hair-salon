@@ -1,0 +1,5 @@
+<p class+"well">Are you sure you want to delete <strong>$client.getFirstName() $client.getLastName() from $stylist.getFirstName()'s client list for good?'</p>
+
+<form action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete client</button>
+</form>
