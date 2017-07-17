@@ -9,6 +9,9 @@ A web page that allows user to organize stylists and clients:
   * Allows user to update details for stylist and clients.
   * Allows user to delete clients
   * Allows user to delete stylists and reassign clients.
+
+## Instructions for setup
+If you want to setup the database structure only, do the following in psql:
   ```
     /* In PSQL */
     CREATE DATABASE hair_salon;
@@ -18,6 +21,26 @@ A web page that allows user to organize stylists and clients:
     CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
   ```  
 
+Otherwise, you can setup a populated database like so after connecting to psql:
+
+    ```
+    /* In PSQL */
+    CREATE DATABASE hair_salon;
+    ```
+
+Then, in another tab of your terminal and within the cloned directory that has the media.sql file:
+
+    ```
+    $ psql hair_salon < media.sql
+    ```
+
+Return to psql:
+
+    ```
+    # \c hair_salon
+    # \dt
+    ```
+
 ## What's included
 Within the repository you'll find the following directories and files:
 
@@ -26,6 +49,7 @@ hair-salon
 ├── README.md
 ├── build.gradle
 ├── .gitignore
+├── media.sql
 └── src
     ├── main
     │   ├── java
@@ -38,14 +62,12 @@ hair-salon
     │       └── templates
     │           ├── layout.vtl
     │           ├── index.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           ├── xxx.vtl
-    │           └── xxx.vtl
+    │           ├── delete-client-form.vtl
+    │           ├── delete-stylist-form.vtl
+    │           ├── stylist.vtl
+    │           ├── stylists.vtl
+    │           ├── update-client-form.vtl
+    │           └── update-stylist-form.vtl
     └── test
         └── java
             ├── DatabaseRule.java
