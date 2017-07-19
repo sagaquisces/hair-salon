@@ -131,7 +131,6 @@ COPY clients (id, firstname, lastname, email, stylistid) FROM stdin;
 18	Tosca	Beaner	t@b.com	4
 9	Micah	Beerstube	m@b.com	1
 10	Flicka	Flacca	f@f.com	1
-2	Michael	Smith	m@p.com	1
 4	Michael	Smith	m@p.com	1
 5	Chilly	Baggins	c@b.com	1
 6	Debra	Winfeld	d@b.com	1
@@ -146,10 +145,10 @@ COPY clients (id, firstname, lastname, email, stylistid) FROM stdin;
 21	Wes	Anderson	w@a	4
 22	Abby	Winters	a@w.com	4
 23	Cheech	Rogers	c@r.com	4
-26	Drudge	Manly	d@m.com	2
-8	Joe	Flagenpuss	j@f.com	2
-25	Mabel	Drybeans	m@b.com	2
 27	Freebase	Compline	f@c.com	14
+26	Drudge	Manly	d@m.com	4
+8	Joe	Flagenpuss	j@f.com	4
+25	Mabel	Drybeans	m@b.com	4
 \.
 
 
@@ -166,7 +165,6 @@ SELECT pg_catalog.setval('clients_id_seq', 28, true);
 
 COPY stylists (id, firstname, lastname, email, description) FROM stdin;
 14	Greyjoy	Simperon	g@salon.com	Long description.
-2	Famous	Female	m@salon.com	I edited this text carefully, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 4	Walteros	Frey	walter@salon.com	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 1	Harry	Styles	h@salon.com	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \.

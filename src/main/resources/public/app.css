@@ -1,3 +1,6 @@
-body{background-color: lightgrey}
 
-.list-group-item {line-height:30px}
+
+.list-group-item {line-height:30px; fo}
+.list-group-item > a, .list-group-item > span {color:grey; font-size: 150%;}
+
+.panel-body {background-color: #333};
